@@ -23,20 +23,26 @@
 const map = L.map('map').setView([42.6569, 2.5856], 12);
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  maxZoom: 19,
+  maxZoom: 20,
   attribution: '© OpenStreetMap contributors'
 }).addTo(map);
 
-// Use locate method to find user's location and set view
-map.locate({ setView: true, maxZoom: 12 });
-
-// Listen for location found event to add a marker and accuracy circle
-map.on('locationfound', function(e) {
-    var radius = e.accuracy;
-    L.marker(e.latlng).addTo(map)
-       // .bindPopup("You are within " + radius.toFixed(0) + " meters from this point");
-    L.circle(e.latlng, radius).addTo(map);
-});
+let userMarker = null;
+navigator.geolocation.watchPosition(
+  function(position) {
+    var latlng = [position.coords.latitude, position.coords.longitude];
+    if (!userMarker) {
+      userMarker = L.marker(latlng).addTo(map);
+      map.setView(latlng, 16);
+    } else {
+      userMarker.setLatLng(latlng);
+    }
+  },
+  function(error) {
+    alert("Geolocation failed: " + error.message);
+  },
+  {enableHighAccuracy: true, maximumAge: 1000}
+);
 
 // Optionally handle location error
 //map.on('locationerror', function(e) {
