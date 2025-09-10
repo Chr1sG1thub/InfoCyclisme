@@ -16,7 +16,15 @@
 </head>
 
 <body>
-  <div id="map"></div>
+  <div id="pleaseWait" style="
+  position:fixed;
+  top:50%;left:50%;width:100px;height:20px;
+  z-index:1001;
+  text-align:center;
+  font-size:16px;">
+  Please wait...
+</div>
+<div id="map"></div>
   <button style="position: absolute; top: 50px; right: 20px; font-size: 16px; width: 150px; z-index: 1001;",
   onclick="window.location.href='index.html'">Home</button>
 <button style="position: absolute; top: 80px; right: 20px; font-size: 16px; width: 150px; z-index: 1001; font-weight: bold;"
@@ -26,15 +34,6 @@
 <button style="position: absolute; top: 140px; right: 20px; font-size: 16px; width: 150px; z-index: 1001;",
   onclick="window.location.href='ascensions.html'">Ascensions</button>
 
-<div id="pleaseWait" style="
-  //display:none;
-  position:fixed;
-  top:50%;left:50%;width:100px;height:20px;
-  z-index:1001;
-  text-align:center;
-  font-size:16px;">
-  Please wait...
-</div>
   <script>
 // Set up map at a chosen starting location 
 const map = L.map('map').setView([0, 0], 12);
@@ -102,7 +101,7 @@ const toiletsIcon = new L.Icon({
 //  shadowSize: [41, 41]
 });
 
-document.getElementById("pleaseWait").style.display = "block";
+// document.getElementById('pleaseWait').style.display = 'block';
 
     fetch('https://script.google.com/macros/s/AKfycbxfZK8Uca2gyh_vd2Zu2r2fbZggRn9txRhOEqggjfmgd0y_qt-VoKS7JpkSGJFf1uPj/exec')
   .then(response => response.json())
@@ -133,7 +132,7 @@ document.getElementById("pleaseWait").style.display = "block";
   .catch(err => {
     console.error('Failed to load locations:', err);
   });
-document.getElementById("pleaseWait").style.display = "none";
+document.getElementById('pleaseWait').style.display = 'none';
   </script>
 <!--  <button style="position: fixed; top: 20px; left: 20px; z-index: 1000;">Click Me</button> -->
 <!--<button class="fixed-map-btn" aria-label="Show information">i</button> -->
