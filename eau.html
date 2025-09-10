@@ -102,7 +102,7 @@ const toiletsIcon = new L.Icon({
 //  shadowSize: [41, 41]
 });
 
-document.getElementById('pleaseWait').style.display = 'block';
+document.getElementById("pleaseWait").style.display = "block";
 
     fetch('https://script.google.com/macros/s/AKfycbxfZK8Uca2gyh_vd2Zu2r2fbZggRn9txRhOEqggjfmgd0y_qt-VoKS7JpkSGJFf1uPj/exec')
   .then(response => response.json())
@@ -133,7 +133,7 @@ document.getElementById('pleaseWait').style.display = 'block';
   .catch(err => {
     console.error('Failed to load locations:', err);
   });
-document.getElementById('pleaseWait').style.display = 'none';
+document.getElementById("pleaseWait").style.display = "none";
   </script>
 <!--  <button style="position: fixed; top: 20px; left: 20px; z-index: 1000;">Click Me</button> -->
 <!--<button class="fixed-map-btn" aria-label="Show information">i</button> -->
