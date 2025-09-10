@@ -57,8 +57,8 @@ navigator.geolocation.watchPosition(
 //    alert(e.message);
 //});
     
-  const greenIcon = new L.Icon({
-  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png',
+  const waterIcon = new L.Icon({
+  iconUrl: 'water.png',
 //  shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
   iconSize: [20, 30],
   iconAnchor: [10, 30],
@@ -66,8 +66,8 @@ navigator.geolocation.watchPosition(
 //  shadowSize: [41, 41]
 });
 
-const redIcon = new L.Icon({
-  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png',
+const tapIcon = new L.Icon({
+  iconUrl: 'tap.png',
 //  shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
   iconSize: [20, 30],
   iconAnchor: [10, 30],
@@ -75,8 +75,8 @@ const redIcon = new L.Icon({
 //  shadowSize: [41, 41]
 });
 
-const yellowIcon = new L.Icon({
-  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-yellow.png',
+const fountainIcon = new L.Icon({
+  iconUrl: 'fountain.png',
 //  shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
   iconSize: [20, 30],
   iconAnchor: [10, 30],
@@ -84,8 +84,8 @@ const yellowIcon = new L.Icon({
 //  shadowSize: [41, 41]
 });
 
-const blueIcon = new L.Icon({
-  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png',
+const toiletsIcon = new L.Icon({
+  iconUrl: 'toilets.png',
 //  shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
   iconSize: [20, 30],
   iconAnchor: [10, 30],
@@ -113,15 +113,15 @@ document.getElementById('pleaseWait').style.display = 'block';
 
     let iconToUse;
     if (loc.Genre === 'FONTAINE') {
-      iconToUse = greenIcon;
+      iconToUse = fountainIcon;
     } else if (loc.Genre === 'ROBINET') {
-      iconToUse = redIcon;
+      iconToUse = tapIcon;
     } else if (loc.Genre === 'TOILETTES') {
-      iconToUse = yellowIcon;
-    } else if (loc.Genre === 'SOURCE') {
-      iconToUse = blueIcon;
+      iconToUse = toiletsIcon;
+//    } else if (loc.Genre === 'SOURCE') {
+//      iconToUse = blueIcon;
     } else if (loc.Genre === 'POINT D\'EAU') {
-      iconToUse = violetIcon;
+      iconToUse = waterIcon;
     }
 
     const marker = L.marker([loc.Lat, loc.Lon], { icon: iconToUse }).addTo(map);
