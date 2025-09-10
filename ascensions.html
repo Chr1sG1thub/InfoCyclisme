@@ -58,7 +58,7 @@ fetch('https://script.google.com/macros/s/AKfycbzYKW5jm7nZzAioN5VACjfidtdm6gYWFH
 
     const marker = L.marker([loc.Lat, loc.Lon]).addTo(map);
       // Add a popup with extra fields from the sheet
-      marker.bindPopup(`<STRONG>${loc.Location}</STRONG><BR>${loc.Horaires}`);
+      marker.bindPopup(`<STRONG>${loc.Name}</STRONG><BR>Elevation: ${loc.Horaires}m`);
   });
   })
   .catch(err => {
