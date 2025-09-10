@@ -48,7 +48,14 @@ navigator.geolocation.watchPosition(
 //map.on('locationerror', function(e) {
 //    alert(e.message);
 //});
-    
+  const mountainIcon = new L.Icon({
+  iconUrl: 'mountain.png',
+//  shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+  iconSize: [20, 30],
+  iconAnchor: [10, 30],
+  popupAnchor: [1, -34],
+//  shadowSize: [41, 41]
+});    
 
 fetch('https://script.google.com/macros/s/AKfycbzO1WUGFuJzowiL1nGFKyak7mhSkKXfJ2yqHq9j1eAgYppuvfvBQZbdLG1w21lCmhGEPg/exec')
   .then(response => response.json())
