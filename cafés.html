@@ -48,6 +48,15 @@ navigator.geolocation.watchPosition(
 //map.on('locationerror', function(e) {
 //    alert(e.message);
 //});
+
+  const coffeeIcon = new L.Icon({
+  iconUrl: 'coffee.png',
+//  shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+  iconSize: [20, 30],
+  iconAnchor: [10, 30],
+  popupAnchor: [1, -34],
+//  shadowSize: [41, 41]
+});    
     
 
 fetch('https://script.google.com/macros/s/AKfycbzYKW5jm7nZzAioN5VACjfidtdm6gYWFHwjlK1qNZxfButcYfAhjJJ189nDPUfZzHW8/exec')
@@ -55,7 +64,7 @@ fetch('https://script.google.com/macros/s/AKfycbzYKW5jm7nZzAioN5VACjfidtdm6gYWFH
   .then(locations => {
     locations.forEach(loc => {
 
-    const marker = L.marker([loc.Lat, loc.Lon]).addTo(map);
+    const marker = L.marker([loc.Lat, loc.Lon], {icon: coffeeicon}).addTo(map);
       // Add a popup with extra fields from the sheet
       marker.bindPopup(`<STRONG>${loc.Location}</STRONG><BR>${loc.Horaires}`);
   });
