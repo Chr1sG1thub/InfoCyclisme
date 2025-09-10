@@ -64,7 +64,7 @@ fetch('https://script.google.com/macros/s/AKfycbzYKW5jm7nZzAioN5VACjfidtdm6gYWFH
   .then(locations => {
     locations.forEach(loc => {
 
-    const marker = L.marker([loc.Lat, loc.Lon], {icon: coffeeicon}).addTo(map);
+    const marker = L.marker([loc.Lat, loc.Lon], { icon: coffeeIcon }).addTo(map);
       // Add a popup with extra fields from the sheet
       marker.bindPopup(`<STRONG>${loc.Location}</STRONG><BR>${loc.Horaires}`);
   });
