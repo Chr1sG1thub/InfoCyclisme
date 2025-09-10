@@ -17,7 +17,18 @@
 
 <body>
   <div id="map"></div>
-
+<div id="pleaseWait" style="
+  display:none;
+  position:fixed;
+  top:0;left:0;width:100vw;height:100vh;
+  background:rgba(0,0,0,0.4);
+  z-index:1000;
+  color:#fff;
+  text-align:center;
+  font-size:2em;
+  padding-top:40vh;">
+  Please wait...
+</div>
   <script>
 // Set up map at a chosen starting location 
 const map = L.map('map').setView([0, 0], 12);
@@ -94,7 +105,9 @@ const violetIcon = new L.Icon({
 //  shadowSize: [41, 41]
 });
 
-fetch('https://script.google.com/macros/s/AKfycbxfZK8Uca2gyh_vd2Zu2r2fbZggRn9txRhOEqggjfmgd0y_qt-VoKS7JpkSGJFf1uPj/exec')
+document.getElementById('pleaseWait').style.display = 'block';
+
+    fetch('https://script.google.com/macros/s/AKfycbxfZK8Uca2gyh_vd2Zu2r2fbZggRn9txRhOEqggjfmgd0y_qt-VoKS7JpkSGJFf1uPj/exec')
   .then(response => response.json())
   .then(locations => {
     locations.forEach(loc => {
@@ -123,7 +136,8 @@ fetch('https://script.google.com/macros/s/AKfycbxfZK8Uca2gyh_vd2Zu2r2fbZggRn9txR
   .catch(err => {
     console.error('Failed to load locations:', err);
   });
-</script>
+document.getElementById('pleaseWait').style.display = 'none';
+  </script>
 <!--  <button style="position: fixed; top: 20px; left: 20px; z-index: 1000;">Click Me</button> -->
 <!--<button class="fixed-map-btn" aria-label="Show information">i</button> -->
 <button style="position: absolute; top: 20px; right: 20px; font-size: 16px; width: 150px; z-index: 1001;", onclick="window.location.href='index.html'">Home</button>
