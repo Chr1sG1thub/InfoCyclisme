@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  
+<head>
+  <meta charset="utf-8">
+  <title>Eau</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <style>
+    #map { height: 800px; width: 100%; }
+  </style>
+<link rel="stylesheet" type="text/css" href="styles.css" />
+</head>
+
+<body>
+  <div id="map"></div>
+
+  <script>
+// Set up map at a chosen starting location 
+const map = L.map('map').setView([42.6569, 2.5856], 12);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  maxZoom: 19,
+  attribution: '© OpenStreetMap contributors'
+}).addTo(map);
+
+// Use locate method to find user's location and set view
+map.locate({ setView: true, maxZoom: 12 });
+
+// Listen for location found event to add a marker and accuracy circle
+map.on('locationfound', function(e) {
+    var radius = e.accuracy;
+    L.marker(e.latlng).addTo(map)
+       // .bindPopup("You are within " + radius.toFixed(0) + " meters from this point");
+    L.circle(e.latlng, radius).addTo(map);
+});
+
+// Optionally handle location error
+//map.on('locationerror', function(e) {
+//    alert(e.message);
+//});
+    
+  const greenIcon = new L.Icon({
+  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png',
+//  shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+  iconSize: [20, 30],
+  iconAnchor: [10, 30],
+  popupAnchor: [1, -34],
+//  shadowSize: [41, 41]
+});
+
+const redIcon = new L.Icon({
+  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png',
+//  shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+  iconSize: [20, 30],
+  iconAnchor: [10, 30],
+  popupAnchor: [1, -34],
+//  shadowSize: [41, 41]
+});
+
+const yellowIcon = new L.Icon({
+  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-yellow.png',
+//  shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+  iconSize: [20, 30],
+  iconAnchor: [10, 30],
+  popupAnchor: [1, -34],
+//  shadowSize: [41, 41]
+});
+
+const blueIcon = new L.Icon({
+  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png',
+//  shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+  iconSize: [20, 30],
+  iconAnchor: [10, 30],
+  popupAnchor: [1, -34],
+//  shadowSize: [41, 41]
+});
+
+const violetIcon = new L.Icon({
+  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-violet.png',
+//  shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+  iconSize: [20, 30],
+  iconAnchor: [10, 30],
+  popupAnchor: [1, -34],
+//  shadowSize: [41, 41]
+});
+
+fetch('https://script.google.com/macros/s/AKfycbxfZK8Uca2gyh_vd2Zu2r2fbZggRn9txRhOEqggjfmgd0y_qt-VoKS7JpkSGJFf1uPj/exec')
+  .then(response => response.json())
+  .then(locations => {
+    locations.forEach(loc => {
+
+  if (loc.Afficher == '+') {
+
+    let iconToUse;
+    if (loc.Genre === 'FONTAINE') {
+      iconToUse = greenIcon;
+    } else if (loc.Genre === 'ROBINET') {
+      iconToUse = redIcon;
+    } else if (loc.Genre === 'TOILETTES') {
+      iconToUse = yellowIcon;
+    } else if (loc.Genre === 'SOURCE') {
+      iconToUse = blueIcon;
+    } else if (loc.Genre === 'POINT D\'EAU') {
+      iconToUse = violetIcon;
+    }
+
+    const marker = L.marker([loc.Lat, loc.Lon], { icon: iconToUse }).addTo(map);
+      // Add a popup with extra fields from the sheet
+      marker.bindPopup(`<STRONG>${loc.Genre}</STRONG>`);
+  } // if (loc.Afficher == '+')
+  });
+  })
+  .catch(err => {
+    console.error('Failed to load locations:', err);
+  });
+</script>
+<!--  <button style="position: fixed; top: 20px; left: 20px; z-index: 1000;">Click Me</button> -->
+<!--<button class="fixed-map-btn" aria-label="Show information">i</button> -->
+<button style="position: absolute; top: 20px; right: 20px; font-size: 20px; z-index: 1001;", onclick="window.location.href='https://www.acprades.fr'">ACP</button>
+<button style="position: absolute; top: 45px; right: 20px; font-size: 20px; z-index: 1001;", onclick="window.location.href='cafes.html'">Cafés</button>
+</body>
+
+</html>
