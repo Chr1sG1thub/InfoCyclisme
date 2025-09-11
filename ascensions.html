@@ -49,7 +49,7 @@ navigator.geolocation.watchPosition(
   function(error) {
     alert("Geolocation failed: " + error.message);
   },
-  {enableHighAccuracy: true, maximumAge: 1000}
+  {enableHighAccuracy: true, timeout: 1000, maximumAge: 1000}
 );
 
 // Optionally handle location error
