@@ -11,8 +11,24 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <style>
     #map { height: 800px; width: 100%; }
+ /* Define a flash animation */
+  @keyframes flash {
+    0%, 50%, 100% { opacity: 1; }
+    25%, 75% { opacity: 0; }
+  }
+
+  /* Apply the flash animation for 1 second once on page load */
+  .flash {
+    animation-name: flash;
+    animation-duration: 5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
   </style>
 <link rel="stylesheet" type="text/css" href="styles.css" />
+
+  
+
 </head>
 
 <body>
@@ -71,7 +87,11 @@ fetch('https://script.google.com/macros/s/AKfycbzO1WUGFuJzowiL1nGFKyak7mhSkKXfJ2
     locations.forEach(loc => {
 
     const marker = L.marker([loc.Lat, loc.Lon], { icon: mountainIcon }).addTo(map);
-
+let markerElement = marker._icon;  // This is the DOM element for the marker icon
+  // Add the flash class to the icon when the page loads
+  
+    document.getElementById(markerElement).classList.add('flash');
+      
       var ppp = `<STRONG>${loc.Name}</STRONG><BR>Elevation: ${loc.Height}m<BR><a HREF="${loc.Profile}" TARGET="_blank">Profil</a>`;
       if (loc.Profile.length == 0) ppp = `<STRONG>${loc.Name}</STRONG><BR>Elevation: ${loc.Height}m`;
       // Add a popup with extra fields from the sheet
