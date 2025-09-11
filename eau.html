@@ -112,15 +112,15 @@ const toiletsIcon = new L.Icon({
   if (loc.Afficher == '+') {
 
     let iconToUse;
-    if (loc.Genre === 'FONTAINE') {
+    if (loc.Genre === 'Fontaine') {
       iconToUse = fountainIcon;
-    } else if (loc.Genre === 'ROBINET') {
+    } else if (loc.Genre === 'Robinet') {
       iconToUse = tapIcon;
-    } else if (loc.Genre === 'TOILETTES') {
+    } else if (loc.Genre === 'Toilettes') {
       iconToUse = toiletsIcon;
 //    } else if (loc.Genre === 'SOURCE') {
 //      iconToUse = blueIcon;
-    } else if (loc.Genre === 'POINT D\'EAU') {
+    } else if (loc.Genre === 'Point d\'Eau') {
       iconToUse = waterIcon;
     }
 
