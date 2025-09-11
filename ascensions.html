@@ -72,7 +72,7 @@ fetch('https://script.google.com/macros/s/AKfycbzO1WUGFuJzowiL1nGFKyak7mhSkKXfJ2
 
     const marker = L.marker([loc.Lat, loc.Lon], { icon: mountainIcon }).addTo(map);
 
-      var ppp = `<STRONG>${loc.Name}</STRONG><BR>Elevation: ${loc.Height}m<BR><a HREF="${loc.Profile}">Profil</a>`;
+      var ppp = `<STRONG>${loc.Name}</STRONG><BR>Elevation: ${loc.Height}m<BR><a HREF=${loc.Profile} TARGET="_blank">Profil</a>`;
       if (loc.Profile.length == 0) ppp = `<STRONG>${loc.Name}</STRONG><BR>Elevation: ${loc.Height}m`;
       // Add a popup with extra fields from the sheet
       marker.bindPopup(ppp);
