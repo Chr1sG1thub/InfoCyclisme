@@ -28,7 +28,7 @@
   onclick="window.location.href='ascensions.html'">Ascensions</button>
   <script>
 // Set up map at a chosen starting location 
-const map = L.map('map').setView([0, 0], 12);
+const map = L.map('map').setView([42.65644, 2.58587], 12);
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   maxZoom: 20,
@@ -49,7 +49,7 @@ navigator.geolocation.watchPosition(
   function(error) {
     alert("Geolocation failed: " + error.message);
   },
-  {enableHighAccuracy: true, timeout: 1000, maximumAge: 1000}
+  {enableHighAccuracy: true, timeout: 10000, maximumAge: 10000}
 );
 
 // Optionally handle location error
