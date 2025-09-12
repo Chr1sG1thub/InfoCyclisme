@@ -25,8 +25,9 @@
   position: absolute; 
   right: 10px; 
   top: 10px;
+  font-size: 20px;
   z-index: 1001" onclick="document.getElementById('help-popup').style.display='block'">?</button>
-<div id="help-popup" style="
+<button id="help-popup" style="
   position: absolute; 
   left: 50%; 
   top: 50%; 
@@ -36,10 +37,10 @@
   padding: 1.5em 2em;
   box-shadow: 0 2px 8px #33333355;
   //border-radius: 12px;
-  display: none;">
-  <p>This is a centered popup.</p>
-  <button onclick="document.getElementById('help-popup').style.display='none'">X</button>
-</div>
+  display: none;"onclick="document.getElementById('help-popup').style.display='none'">
+  This is a centered popup. Click to dismiss
+
+</button>
 
   <button style="position: absolute; top: 50px; right: 20px; font-size: 16px; width: 120px; z-index: 1001;",
   onclick="window.location.href='index.html'">Accueil</button>
