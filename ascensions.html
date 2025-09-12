@@ -117,7 +117,7 @@ navigator.geolocation.watchPosition(
 //  shadowSize: [41, 41]
 });    
 
-// Create an empty LayerGroup
+  // Create an empty LayerGroup
 var ascensionsGroup = L.layerGroup();
 //fetch('https://script.google.com/macros/s/AKfycbzO1WUGFuJzowiL1nGFKyak7mhSkKXfJ2yqHq9j1eAgYppuvfvBQZbdLG1w21lCmhGEPg/exec')
   fetch('ascensions.json')
@@ -125,8 +125,8 @@ var ascensionsGroup = L.layerGroup();
   .then(locations => {
     locations.forEach(loc => {
 
-    const marker = L.marker([loc.Lat, loc.Lon], { icon: mountainIcon });
-    ascensionsGroup.addLayer(marker);  
+    var marker = L.marker([loc.Lat, loc.Lon], { icon: mountainIcon });
+  ascensionsGroup.addLayer(marker);  
       var ppp = `<STRONG>${loc.Name}</STRONG><BR>Elevation: ${loc.Height}m<BR><BR><a HREF="${loc.Profile}" TARGET="_blank">Profil</a> <BR><I>(Nouvelle Fenêtre)</I>`;
       if (loc.Profile.length == 0) ppp = `<STRONG>${loc.Name}</STRONG><BR>Elevation: ${loc.Height}m`;
       // Add a popup with extra fields from the sheet
