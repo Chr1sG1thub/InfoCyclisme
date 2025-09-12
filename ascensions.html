@@ -21,7 +21,26 @@
 <body>
   <div id="map"></div>
 
-<button style="position: absolute; top: 50px; right: 20px; font-size: 16px; width: 120px; z-index: 1001;",
+<button style="
+  position: absolute; 
+  right: 10px; 
+  top: 10px" onclick="document.getElementById('help-popup').style.display='block'">?</button>
+<div id="help-popup" style="
+  position: absolute; 
+  left: 50%; 
+  top: 50%; 
+  transform: translate(-50%, -50%);
+  z-index: 1001; 
+  background: white; 
+  padding: 1.5em 2em;
+  box-shadow: 0 2px 8px #33333355;
+  //border-radius: 12px;
+  display: none;">
+  <p>This is a centered popup.</p>
+  <button onclick="document.getElementById('help-popup').style.display='none'">X</button>
+</div>
+
+  <button style="position: absolute; top: 50px; right: 20px; font-size: 16px; width: 120px; z-index: 1001;",
   onclick="window.location.href='index.html'">Accueil</button>
 <button style="position: absolute; top: 80px; right: 20px; font-size: 16px; width: 120px; z-index: 1001; background-color: cyan; font-weight: bold;",
   onclick="window.location.href='ascensions.html'">Ascensions</button>
