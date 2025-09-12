@@ -131,7 +131,7 @@ var ascensionsGroup = L.layerGroup();
       if (loc.Profile.length == 0) ppp = `<STRONG>${loc.Name}</STRONG><BR>Elevation: ${loc.Height}m`;
       // Add a popup with extra fields from the sheet
       marker.bindPopup(ppp);
-      marker.bindTooltip(${loc.Name}, {
+      marker.bindTooltip("XYZ", {
   permanent: false, // default, show only on hover
   interactive: false // allows interaction if needed
 });
