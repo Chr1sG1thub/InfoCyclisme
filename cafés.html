@@ -75,7 +75,7 @@ fetch('https://script.google.com/macros/s/AKfycbwZhGCdnz5zCqJ84H-IV5OtIUCo-Bma9R
   if (loc.Actif == 'Y') {
   const marker = L.marker([loc.Lat, loc.Lon], { icon: coffeeIcon }).addTo(map);
       // Add a popup with extra fields from the sheet
-      marker.bindPopup(`<A HREF="${loc.LinkURL}" TARGET="_blank">${loc.Name}</A>`);
+      marker.bindPopup(`<A HREF="${loc.LinkURL}" TARGET="_blank">${loc.Name}</A><BR><I>(Nouvelle Fenêtre)</I>`);
   }
     });
   })
