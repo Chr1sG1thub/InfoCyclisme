@@ -50,8 +50,23 @@
   onclick="window.location.href='cafés.html'">Cafés</button>
 <button style="position: absolute; top: 150px; right: 50px; font-size: 16px; width: 120px; z-index: 1001;",
   onclick="window.location.href='eau.html'">Points d'Eau</button>
+
+  <button id="toggleAscensions">Toggle Ascensions</button>
+
   <script>
-// Set up map at a chosen starting location 
+// Store visibility state
+  var visible = true;
+
+  // Toggle button event handler
+  document.getElementById('toggleAscensions').onclick = function () {
+    if (visible) {
+      map.removeLayer(ascensionsGroup);
+      visible = false;
+    } else {
+      map.addLayer(ascensionsGroup);
+      visible = true;
+    }
+  };// Set up map at a chosen starting location 
 const map = L.map('map').setView([42.65644, 2.58587], 12);
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
