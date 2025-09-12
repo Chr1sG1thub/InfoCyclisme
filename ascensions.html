@@ -134,7 +134,9 @@ var ascensionsGroup = L.layerGroup();
       var tt = `${loc.Name}`;
       marker.bindTooltip(tt, {
   permanent: false, // default, show only on hover
-  interactive: false
+  interactive: false,
+  offset: L.point(10, 10),
+  opacity: 1
 });
 
   });
