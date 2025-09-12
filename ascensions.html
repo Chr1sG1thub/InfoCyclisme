@@ -45,34 +45,28 @@
 
   <button style="position: absolute; top: 60px; right: 50px; font-size: 16px; width: 120px; z-index: 1001;",
   onclick="window.location.href='index.html'">Accueil</button>
-<button style="position: absolute; top: 90px; right: 50px; font-size: 16px; width: 120px; z-index: 1001; background-color: cyan; font-weight: bold;",
+<button id="toggleAscensions" style="position: absolute; top: 90px; right: 50px; font-size: 16px; width: 120px; z-index: 1001; background-color: cyan; font-weight: bold;",
   onclick="window.location.href='ascensions.html'">Ascensions</button>
 <button style="position: absolute; top: 120px; right: 50px; font-size: 16px; width: 120px; z-index: 1001;",
   onclick="window.location.href='cafés.html'">Cafés</button>
 <button style="position: absolute; top: 150px; right: 50px; font-size: 16px; width: 120px; z-index: 1001;",
   onclick="window.location.href='eau.html'">Points d'Eau</button>
 
-  <button id="toggleAscensions" style="
-  position: absolute; 
-  right: 50px; 
-  top: 200px;
-  font-size: 16px;
-  z-index: 1001;">Toggle Ascensions</button>
-
   <script>
 // Store visibility state
-  var visible = true;
+  var ascensionsVisible = true;
 
   // Toggle button event handler
   document.getElementById('toggleAscensions').onclick = function () {
-    if (visible) {
+    if (ascensionsVisible) {
       map.removeLayer(ascensionsGroup);
-      visible = false;
+      ascensionsVisible = false;
     } else {
       map.addLayer(ascensionsGroup);
-      visible = true;
+      ascensionsVisible = true;
     }
-  };// Set up map at a chosen starting location 
+  };
+    // Set up map at a chosen starting location 
 const map = L.map('map').setView([42.65644, 2.58587], 12);
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
