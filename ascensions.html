@@ -131,7 +131,7 @@ var ascensionsGroup = L.layerGroup();
       if (loc.Profile.length == 0) ppp = `<STRONG>${loc.Name}</STRONG><BR>Elevation: ${loc.Height}m`;
       // Add a popup with extra fields from the sheet
       marker.bindPopup(ppp);
-      marker.bindTooltip("Tooltip content here", {
+      marker.bindTooltip(${loc.Name}, {
   permanent: false, // default, show only on hover
   interactive: false // allows interaction if needed
 });
@@ -149,11 +149,10 @@ ascensionsGroup.addTo(map);
             ascensionsGroup.eachLayer( function (layer){
                 //console.log(layer);
                 if ( zoom >= 14 && (!layer.getTooltip()) ) {
-                    tooltiptext = 'BOO!';
-                    layer.bindTooltip(tooltiptext , { sticky: false ,permanent: true, interactive: false , direction: 'auto'});
+                    layer.openTooltip();
                 } else if ( zoom < 14 && (layer.getTooltip()) ) {
                     //console.log('remove tooltip');
-                    layer.unbindTooltip();
+                    layer.closeTooltip();
                 }
             });
      });
