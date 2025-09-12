@@ -75,6 +75,7 @@ navigator.geolocation.watchPosition(
     
 
 fetch('https://script.google.com/macros/s/AKfycbwZhGCdnz5zCqJ84H-IV5OtIUCo-Bma9RcyLxJhnFLflmBh977OgQD88r57FhOpwuyd/exec')
+fetch('cafes.json')
   .then(response => response.json())
   .then(locations => {
     locations.forEach(loc => {
