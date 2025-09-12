@@ -136,7 +136,7 @@ var ascensionsGroup = L.layerGroup();
   permanent: false, // default, show only on hover
   interactive: false,
   offset: L.point(10, 10),
-  opacity: 0.4
+  opacity: 0.6
 });
 
   });
@@ -151,9 +151,9 @@ ascensionsGroup.addTo(map);
         var zoom = map.getZoom();
             ascensionsGroup.eachLayer( function (layer){
                 //console.log(layer);
-                if ( zoom >= 13 ) {
+                if ( zoom >= 14 ) {
                     layer.openTooltip();
-                } else {
+                } else if ( zoom < 14 ) {
                     //console.log('remove tooltip');
                     layer.closeTooltip();
                 }
