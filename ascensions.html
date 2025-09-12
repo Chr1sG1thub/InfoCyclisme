@@ -133,7 +133,7 @@ var ascensionsGroup = L.layerGroup();
       marker.bindPopup(ppp);
       marker.bindTooltip("XYZ", {
   permanent: false, // default, show only on hover
-  interactive: false // allows interaction if needed
+  interactive: false
 });
 
   });
@@ -144,18 +144,18 @@ ascensionsGroup.addTo(map);
     console.error('Failed to load locations:', err);
   });
 
-    map.on('zoomend', function() {
-        var zoom = map.getZoom();
-            ascensionsGroup.eachLayer( function (layer){
-                //console.log(layer);
-                if ( zoom >= 14 && (!layer.getTooltip()) ) {
-                    layer.openTooltip();
-                } else if ( zoom < 14 && (layer.getTooltip()) ) {
-                    //console.log('remove tooltip');
-                    layer.closeTooltip();
-                }
-            });
-     });
+ //   map.on('zoomend', function() {
+   //     var zoom = map.getZoom();
+     //       ascensionsGroup.eachLayer( function (layer){
+       //         //console.log(layer);
+         //       if ( zoom >= 14 && (!layer.getTooltip()) ) {
+           //         layer.openTooltip();
+             //   } else if ( zoom < 14 && (layer.getTooltip()) ) {
+               //     //console.log('remove tooltip');
+                 //   layer.closeTooltip();
+                //}
+            //});
+     //});
     
 </script>
 <!--  <button style="position: fixed; top: 20px; left: 20px; z-index: 1000;">Click Me</button> -->
