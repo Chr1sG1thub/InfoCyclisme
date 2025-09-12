@@ -145,7 +145,7 @@ ascensionsGroup.addTo(map);
                 //console.log(layer);
                 if ( zoom >= 12 && (!layer.getTooltip()) ) {
                     tooltiptext = 'BOO!';
-                    layer.bindTooltip(tooltiptext , { sticky: true ,permanent: true, interactive: false , direction: 'center', className: 'zipcodes'});
+                    layer.bindTooltip(tooltiptext , { sticky: false ,permanent: true, interactive: false , direction: 'auto'});
                 } else if ( zoom < 12 && (layer.getTooltip()) ) {
                     //console.log('remove tooltip');
                     layer.unbindTooltip();
