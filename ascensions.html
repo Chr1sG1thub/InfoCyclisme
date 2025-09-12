@@ -38,12 +38,20 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '© OpenStreetMap contributors'
 }).addTo(map);
 
+  const locationIcon = new L.Icon({
+  iconUrl: 'location.ico',
+//  shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+  iconSize: [20, 20],
+  iconAnchor: [10, 00],
+ // popupAnchor: [1, -30],
+//  shadowSize: [41, 41]
+});    
 let userMarker = null;
 navigator.geolocation.watchPosition(
   function(position) {
     var latlng = [position.coords.latitude, position.coords.longitude];
     if (!userMarker) {
-      userMarker = L.marker(latlng).addTo(map);
+      userMarker = L.marker(latlng, { icon: locationIcon }).addTo(map);
       map.setView(latlng, 12);
     } else {
       userMarker.setLatLng(latlng);
