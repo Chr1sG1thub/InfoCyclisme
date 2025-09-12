@@ -10,7 +10,7 @@
   <!-- Leaflet JS -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <style>
-    #map { height: 800px; width: 100%; }
+    #map { height: 100%; width: 100%; }
   </style>
 <link rel="stylesheet" type="text/css" href="styles.css" />
 
@@ -151,9 +151,9 @@ ascensionsGroup.addTo(map);
         var zoom = map.getZoom();
             ascensionsGroup.eachLayer( function (layer){
                 //console.log(layer);
-                if ( zoom >= 14 ) {
+                if ( zoom >= 13 ) {
                     layer.openTooltip();
-                } else if ( zoom < 14 ) {
+                } else {
                     //console.log('remove tooltip');
                     layer.closeTooltip();
                 }
