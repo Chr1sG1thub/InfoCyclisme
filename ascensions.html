@@ -57,9 +57,9 @@ navigator.geolocation.watchPosition(
       userMarker.setLatLng(latlng);
     }
   },
-  //function(error) {
+  function(error) {
     //alert("Geolocation failed: " + error.message);
-  //},
+  },
   {enableHighAccuracy: false, timeout: 5000, maximumAge: 10000}
 );
 
