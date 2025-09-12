@@ -151,9 +151,9 @@ ascensionsGroup.addTo(map);
         var zoom = map.getZoom();
             ascensionsGroup.eachLayer( function (layer){
                 //console.log(layer);
-                if ( zoom >= 14 && (!layer.getTooltip()) ) {
+                if ( zoom >= 14 ) {
                     layer.openTooltip();
-                } else if ( zoom < 14 && (layer.getTooltip()) ) {
+                } else if ( zoom < 14 ) {
                     //console.log('remove tooltip');
                     layer.closeTooltip();
                 }
