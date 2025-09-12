@@ -97,7 +97,8 @@ navigator.geolocation.watchPosition(
 //  shadowSize: [41, 41]
 });    
 
-fetch('https://script.google.com/macros/s/AKfycbzO1WUGFuJzowiL1nGFKyak7mhSkKXfJ2yqHq9j1eAgYppuvfvBQZbdLG1w21lCmhGEPg/exec')
+//fetch('https://script.google.com/macros/s/AKfycbzO1WUGFuJzowiL1nGFKyak7mhSkKXfJ2yqHq9j1eAgYppuvfvBQZbdLG1w21lCmhGEPg/exec')
+fetch('ascensions.json')
   .then(response => response.json())
   .then(locations => {
     locations.forEach(loc => {
