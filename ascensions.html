@@ -138,6 +138,21 @@ ascensionsGroup.addTo(map);
   .catch(err => {
     console.error('Failed to load locations:', err);
   });
+
+    map.on('zoomend', function() {
+        var zoom = map.getZoom();
+            ascensionsGroup.eachLayer( function (layer){
+                //console.log(layer);
+                if ( zoom >= 12 && (!layer.getTooltip()) ) {
+                    tooltiptext = 'BOO!';
+                    layer.bindTooltip(tooltiptext , { sticky: true ,permanent: true, interactive: false , direction: 'center', className: 'zipcodes'});
+                } else if ( zoom < 12 && (layer.getTooltip()) ) {
+                    //console.log('remove tooltip');
+                    layer.unbindTooltip();
+                }
+            });
+     });
+    
 </script>
 <!--  <button style="position: fixed; top: 20px; left: 20px; z-index: 1000;">Click Me</button> -->
 <!--<button class="fixed-map-btn" aria-label="Show information">i</button> -->
