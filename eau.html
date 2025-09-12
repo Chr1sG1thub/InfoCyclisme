@@ -102,7 +102,8 @@ const toiletsIcon = new L.Icon({
 
 // document.getElementById('pleaseWait').style.display = 'block';
 
-    fetch('https://script.google.com/macros/s/AKfycbxfZK8Uca2gyh_vd2Zu2r2fbZggRn9txRhOEqggjfmgd0y_qt-VoKS7JpkSGJFf1uPj/exec')
+  //fetch('https://script.google.com/macros/s/AKfycbxfZK8Uca2gyh_vd2Zu2r2fbZggRn9txRhOEqggjfmgd0y_qt-VoKS7JpkSGJFf1uPj/exec')
+  fetch('eau.json')
   .then(response => response.json())
   .then(locations => {
     locations.forEach(loc => {
