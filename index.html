@@ -60,11 +60,11 @@
     if (ascensionsVisible) {
       map.removeLayer(ascensionsGroup);
       ascensionsVisible = false;
-      document.getElementById('toggleAscensions').style.backgroundColor = "white";
+      document.getElementById('toggleAscensions').style.opacity = 3;
     } else {
       map.addLayer(ascensionsGroup);
       ascensionsVisible = true;
-      document.getElementById('toggleAscensions').style.backgroundColor = "cyan";
+      document.getElementById('toggleAscensions').style.opacity = 9;
    }
   };
 
@@ -72,11 +72,11 @@
     if (cafesVisible) {
       map.removeLayer(cafesGroup);
       cafesVisible = false;
-      document.getElementById('toggleCafes').style.backgroundColor = "white";
+      document.getElementById('toggleCafes').style.opacity = 3;
     } else {
       map.addLayer(cafesGroup);
       cafesVisible = true;
-      document.getElementById('toggleCafes').style.backgroundColor = "cyan";
+      document.getElementById('toggleCafes').style.opacity = 9;
    }
   };
 
@@ -84,11 +84,11 @@
     if (eauVisible) {
       map.removeLayer(eauGroup);
       eauVisible = false;
-      document.getElementById('toggleEau').style.backgroundColor = "white";
+      document.getElementById('toggleEau').opacity = 3;
     } else {
       map.addLayer(eauGroup);
       eauVisible = true;
-      document.getElementById('toggleEau').style.backgroundColor = "cyan";
+      document.getElementById('toggleEau').style.opacity = 9;
    }
   };
   
