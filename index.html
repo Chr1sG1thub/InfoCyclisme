@@ -22,10 +22,11 @@
   
   <div id="map"></div>
 
-<button style="
+<button title="Aide" style="
   position: absolute; 
-  right: 20px; 
-  top: 20px;
+  right: 50px; 
+  top: 50px;
+  width: 50px;
   font-size: 20px;
   z-index: 1001" onclick="document.getElementById('help-popup').style.display='block'"><STRONG>?</STRONG></button>
 
@@ -84,7 +85,7 @@
     if (eauVisible) {
       map.removeLayer(eauGroup);
       eauVisible = false;
-      document.getElementById('toggleEau').opacity = 0.4;
+      document.getElementById('toggleEau').style.opacity = 0.4;
     } else {
       map.addLayer(eauGroup);
       eauVisible = true;
