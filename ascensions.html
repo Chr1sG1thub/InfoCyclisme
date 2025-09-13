@@ -20,6 +20,7 @@
 </head>
 
 <body>
+  
   <div id="map"></div>
 
 <button style="
@@ -28,7 +29,8 @@
   top: 20px;
   font-size: 20px;
   z-index: 1001" onclick="document.getElementById('help-popup').style.display='block'"><STRONG>?</STRONG></button>
-<button id="help-popup" style="
+
+  <button id="help-popup" style="
   position: absolute; 
   left: 50%; 
   top: 50%; 
@@ -47,14 +49,16 @@
   onclick="window.location.href='index.html'">Accueil</button>
 <button id="toggleAscensions" style="position: absolute; top: 90px; right: 50px; font-size: 16px; width: 120px; z-index: 1001; background-color: cyan; font-weight: bold;",
   onclick="window.location.href='ascensions.html'">Ascensions</button>
-<button style="position: absolute; top: 120px; right: 50px; font-size: 16px; width: 120px; z-index: 1001;",
+<button id="toggleCafes" style="position: absolute; top: 120px; right: 50px; font-size: 16px; width: 120px; z-index: 1001;",
   onclick="window.location.href='cafés.html'">Cafés</button>
-<button style="position: absolute; top: 150px; right: 50px; font-size: 16px; width: 120px; z-index: 1001;",
+<button id="toggleEau" style="position: absolute; top: 150px; right: 50px; font-size: 16px; width: 120px; z-index: 1001;",
   onclick="window.location.href='eau.html'">Points d'Eau</button>
 
   <script>
-// Store visibility state
+// Store visibility states
   var ascensionsVisible = true;
+  var cafesVisible = true;
+  var eauVisible = true;
 
   // Toggle button event handler
   document.getElementById('toggleAscensions').onclick = function () {
@@ -68,6 +72,31 @@
       document.getElementById('toggleAscensions').style.backgroundColor = "cyan";
    }
   };
+
+  document.getElementById('toggleCafes').onclick = function () {
+    if (cafesVisible) {
+      map.removeLayer(cafesGroup);
+      cafesVisible = false;
+      document.getElementById('toggleCafes').style.backgroundColor = "white";
+    } else {
+      map.addLayer(cafesGroup);
+      cafesVisible = true;
+      document.getElementById('toggleCafes').style.backgroundColor = "cyan";
+   }
+  };
+
+    document.getElementById('toggleEau').onclick = function () {
+    if (eauVisible) {
+      map.removeLayer(eauGroup);
+      eauVisible = false;
+      document.getElementById('toggleEau').style.backgroundColor = "white";
+    } else {
+      map.addLayer(eauGroup);
+      eauVisible = true;
+      document.getElementById('toggleEau').style.backgroundColor = "cyan";
+   }
+  };
+  
     // Set up map at a chosen starting location 
 const map = L.map('map').setView([42.65644, 2.58587], 12);
 
@@ -114,7 +143,52 @@ navigator.geolocation.watchPosition(
 //  shadowSize: [41, 41]
 });    
 
-  // Create an empty LayerGroup
+   const coffeeIcon = new L.Icon({
+  iconUrl: 'coffee.png',
+//  shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+  iconSize: [30, 30],
+  iconAnchor: [15, 15],
+  popupAnchor: [1, -30],
+//  shadowSize: [41, 41]
+});    
+
+  const waterIcon = new L.Icon({
+  iconUrl: 'water.png',
+//  shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+  iconSize: [30, 30],
+  iconAnchor: [15, 15],
+  popupAnchor: [1, -30],
+//  shadowSize: [41, 41]
+});
+
+const tapIcon = new L.Icon({
+  iconUrl: 'tap.png',
+//  shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+  iconSize: [30, 30],
+  iconAnchor: [15, 15],
+  popupAnchor: [1, -30],
+//  shadowSize: [41, 41]
+});
+
+const fountainIcon = new L.Icon({
+  iconUrl: 'fountain.png',
+//  shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+  iconSize: [30, 30],
+  iconAnchor: [15, 15],
+  popupAnchor: [1, -30],
+//  shadowSize: [41, 41]
+});
+
+const toiletsIcon = new L.Icon({
+  iconUrl: 'toilets.png',
+//  shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+  iconSize: [30, 30],
+  iconAnchor: [15, 15],
+  popupAnchor: [1, -30],
+//  shadowSize: [41, 41]
+});
+
+    // Create an empty LayerGroup
 var ascensionsGroup = L.layerGroup();
 //fetch('https://script.google.com/macros/s/AKfycbzO1WUGFuJzowiL1nGFKyak7mhSkKXfJ2yqHq9j1eAgYppuvfvBQZbdLG1w21lCmhGEPg/exec')
   fetch('ascensions.json')
@@ -146,9 +220,96 @@ ascensionsGroup.addTo(map);
     console.error('Failed to load locations:', err);
   });
 
+    // Create an empty LayerGroup
+var cafesGroup = L.layerGroup();
+//fetch('https://script.google.com/macros/s/AKfycbzO1WUGFuJzowiL1nGFKyak7mhSkKXfJ2yqHq9j1eAgYppuvfvBQZbdLG1w21lCmhGEPg/exec')
+  fetch('cafes.json')
+  .then(response => response.json())
+  .then(locations => {
+    locations.forEach(loc => {
+
+  if (loc.Actif == 'Y') {
+  const marker = L.marker([loc.Lat, loc.Lon], { icon: coffeeIcon }).addTo(map);
+      // Add a popup with extra fields from the sheet
+      marker.bindPopup(`<STRONG>${loc.Name}</STRONG><BR><BR><A HREF="${loc.LinkURL}" TARGET="_blank">Détails</A><BR><I>(Nouvelle Fenêtre)</I>`);
+  }
+ cafesGroup.addLayer(marker);  
+      //marker.off('mouseover');
+      //marker.off('mouseout');
+      var tt = `${loc.Name}`;
+      marker.bindTooltip(tt, {
+  permanent: false, // default, show only on hover
+  interactive: false,
+  offset: L.point(10, 10),
+  opacity: 0.6
+});
+
+  });
+    // Add the LayerGroup to the map
+cafesGroup.addTo(map);
+  })
+  .catch(err => {
+    console.error('Failed to load locations:', err);
+  });
+
+    // Create an empty LayerGroup
+var eauGroup = L.layerGroup();
+//fetch('https://script.google.com/macros/s/AKfycbzO1WUGFuJzowiL1nGFKyak7mhSkKXfJ2yqHq9j1eAgYppuvfvBQZbdLG1w21lCmhGEPg/exec')
+  fetch('eau.json')
+  .then(response => response.json())
+  .then(locations => {
+    locations.forEach(loc => {
+
+ if (loc.Afficher == '+') {
+
+    let iconToUse;
+    if (loc.Genre === 'Fontaine') {
+      iconToUse = fountainIcon;
+    } else if (loc.Genre === 'Robinet') {
+      iconToUse = tapIcon;
+    } else if (loc.Genre === 'Toilettes') {
+      iconToUse = toiletsIcon;
+//    } else if (loc.Genre === 'SOURCE') {
+//      iconToUse = blueIcon;
+    } else if (loc.Genre === 'Point d\'Eau') {
+      iconToUse = waterIcon;
+    }
+
+    const marker = L.marker([loc.Lat, loc.Lon], { icon: iconToUse }).addTo(map);
+      // Add a popup with extra fields from the sheet
+      marker.bindPopup(`<STRONG>${loc.Genre}</STRONG>`);
+  } // if (loc.Afficher == '+')
+ eauGroup.addLayer(marker);  
+      //marker.off('mouseover');
+      //marker.off('mouseout');
+      var tt = `${loc.Name}`;
+      marker.bindTooltip(tt, {
+  permanent: false, // default, show only on hover
+  interactive: false,
+  offset: L.point(10, 10),
+  opacity: 0.6
+});
+
+  });
+    // Add the LayerGroup to the map
+eauGroup.addTo(map);
+  })
+  .catch(err => {
+    console.error('Failed to load locations:', err);
+  });
+
     map.on('zoomend', function() {
         var zoom = map.getZoom();
             ascensionsGroup.eachLayer( function (layer){
+                //console.log(layer);
+                if ( zoom >= 13 ) {
+                    layer.openTooltip();
+                } else if ( zoom < 13 ) {
+                    //console.log('remove tooltip');
+                    layer.closeTooltip();
+                }
+            });
+            cafesGroup.eachLayer( function (layer){
                 //console.log(layer);
                 if ( zoom >= 13 ) {
                     layer.openTooltip();
