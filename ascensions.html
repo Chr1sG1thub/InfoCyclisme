@@ -40,19 +40,16 @@
   padding: 1.5em 2em;
   box-shadow: 0 2px 8px #33333355;
   //border-radius: 12px;
-  display: none;"onclick="document.getElementById('help-popup').style.display='none'">
+  display: none;" onclick="document.getElementById('help-popup').style.display='none'">
   This is a centered popup. <BR><BR><i>Click to dismiss</i>
 
 </button>
 
-  <button style="position: absolute; top: 60px; right: 50px; font-size: 16px; width: 120px; z-index: 1001;",
-  onclick="window.location.href='index.html'">Accueil</button>
-<button id="toggleAscensions" style="position: absolute; top: 90px; right: 50px; font-size: 16px; width: 120px; z-index: 1001; background-color: cyan; font-weight: bold;",
-  onclick="window.location.href='ascensions.html'">Ascensions</button>
-<button id="toggleCafes" style="position: absolute; top: 120px; right: 50px; font-size: 16px; width: 120px; z-index: 1001;",
+  <button style="position: absolute; top: 60px; right: 50px; font-size: 16px; width: 120px; z-index: 1001">Accueil</button>
+<button id="toggleAscensions" style="position: absolute; top: 90px; right: 50px; font-size: 16px; width: 120px; z-index: 1001; background-color: cyan;">Ascensions</button>
+<button id="toggleCafes" style="position: absolute; top: 120px; right: 50px; font-size: 16px; width: 120px; z-index: 1001; background-color: cyan;",
   onclick="window.location.href='cafés.html'">Cafés</button>
-<button id="toggleEau" style="position: absolute; top: 150px; right: 50px; font-size: 16px; width: 120px; z-index: 1001;",
-  onclick="window.location.href='eau.html'">Points d'Eau</button>
+<button id="toggleEau" style="position: absolute; top: 150px; right: 50px; font-size: 16px; width: 120px; z-index: 1001; background-color: cyan;>Points d'Eau</button>
 
   <script>
 // Store visibility states
@@ -134,6 +131,7 @@ navigator.geolocation.watchPosition(
 //map.on('locationerror', function(e) {
 //    alert(e.message);
 //});
+  
   const mountainIcon = new L.Icon({
   iconUrl: 'mountain.png',
 //  shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
