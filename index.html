@@ -209,6 +209,16 @@ var ascensionsGroup = L.layerGroup();
   offset: L.point(10, 10),
   opacity: 0.6
 });
+    // Attach event listeners for each marker
+    marker.on('popupopen', function() {
+        var tooltip = this.getTooltip();
+        if (tooltip) tooltip.setOpacity(0);
+    });
+
+    marker.on('popupclose', function() {
+        var tooltip = this.getTooltip();
+        if (tooltip) tooltip.setOpacity(0.6);
+    });
 
   });
     // Add the LayerGroup to the map
@@ -241,6 +251,16 @@ var cafesGroup = L.layerGroup();
   opacity: 0.6
 });
   }
+    // Attach event listeners for each marker
+    marker.on('popupopen', function() {
+        var tooltip = this.getTooltip();
+        if (tooltip) tooltip.setOpacity(0);
+    });
+
+    marker.on('popupclose', function() {
+        var tooltip = this.getTooltip();
+        if (tooltip) tooltip.setOpacity(0.6);
+    });
 
   });
     // Add the LayerGroup to the map
