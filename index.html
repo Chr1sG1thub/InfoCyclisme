@@ -54,7 +54,7 @@
   <script>
 
     // Returns true if the device supports hovering (i.e., mouse/trackpad)
-const canHover = window.matchMedia('(hover: hover)').matches;
+//const canHover = window.matchMedia('(hover: hover)').matches;
 
 // Store visibility states
   var ascensionsVisible = true;
@@ -206,7 +206,7 @@ var ascensionsGroup = L.layerGroup();
       marker.bindPopup(ppp);
       //marker.off('mouseover');
       //marker.off('mouseout');
-if(canHover){
+//if(canHover){
   var tt = `<STRONG>${loc.Name}</STRONG>`;
       marker.bindTooltip(tt, {
   permanent: false, // default, show only on hover
@@ -224,7 +224,7 @@ if(canHover){
         var tooltip = this.getTooltip();
         if (tooltip) tooltip.setOpacity(0.6);
     });
-} // if(CanHover)
+//} // if(CanHover)
 
   });
     // Add the LayerGroup to the map
@@ -249,7 +249,7 @@ var cafesGroup = L.layerGroup();
       marker.bindPopup(`<STRONG>${loc.Name}</STRONG><BR>${loc.Location}<BR><BR><A HREF="${loc.LinkURL}" TARGET="_blank">Détails</A><BR><I>(Nouvelle Fenêtre)</I>`);
      //marker.off('mouseover');
       //marker.off('mouseout');
-if(canHover){
+//if(canHover){
       var tt = `<STRONG>${loc.Name}</STRONG><BR>${loc.Location}`;
       marker.bindTooltip(tt, {
   permanent: false, // default, show only on hover
@@ -267,7 +267,7 @@ if(canHover){
         var tooltip = this.getTooltip();
         if (tooltip) tooltip.setOpacity(0.6);
     });
-  } // if(canHover)
+  //} // if(canHover)
   } // if (loc.Actif == 'Y')
 
   });
@@ -307,7 +307,7 @@ var eauGroup = L.layerGroup();
  eauGroup.addLayer(marker);  
       //marker.off('mouseover');
       //marker.off('mouseout');
- if(canHover){
+ //if(canHover){
    var tt = `<STRONG>${loc.Genre}</STRONG>`;
       marker.bindTooltip(tt, {
   permanent: false, // default, show only on hover
@@ -325,7 +325,7 @@ var eauGroup = L.layerGroup();
         var tooltip = this.getTooltip();
         if (tooltip) tooltip.setOpacity(0.6);
     });
- } // if(canHover)
+ //} // if(canHover)
   } // if (loc.Afficher == '+')
 
   });
