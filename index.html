@@ -230,10 +230,10 @@ var cafesGroup = L.layerGroup();
   const marker = L.marker([loc.Lat, loc.Lon], { icon: coffeeIcon }).addTo(map);
   cafesGroup.addLayer(marker);  
       // Add a popup with extra fields from the sheet
-      marker.bindPopup(`<STRONG>${loc.Name}</STRONG><BR><BR><A HREF="${loc.LinkURL}" TARGET="_blank">Détails</A><BR><I>(Nouvelle Fenêtre)</I>`);
+      marker.bindPopup(`<STRONG>${loc.Name}</STRONG><BR>${loc.Location}<BR><BR><A HREF="${loc.LinkURL}" TARGET="_blank">Détails</A><BR><I>(Nouvelle Fenêtre)</I>`);
      //marker.off('mouseover');
       //marker.off('mouseout');
-      var tt = `${loc.Name}`;
+      var tt = `${loc.Name}<BR>$loc.Location}`;
       marker.bindTooltip(tt, {
   permanent: false, // default, show only on hover
   interactive: false,
