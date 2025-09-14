@@ -223,6 +223,13 @@ var ascensionsGroup = L.layerGroup();
     marker.on('popupclose', function() {
         var tooltip = this.getTooltip();
         if (tooltip) tooltip.setOpacity(0.6);
+       var zoom = map.getZoom();
+            ascensionsGroup.eachLayer( function (layer){
+                //console.log(layer);
+                if ( zoom >= 13 ) {
+                    layer.openTooltip();
+                }
+            });
     });
 //} // if(CanHover)
 
@@ -266,6 +273,14 @@ var cafesGroup = L.layerGroup();
     marker.on('popupclose', function() {
         var tooltip = this.getTooltip();
         if (tooltip) tooltip.setOpacity(0.6);
+      
+       var zoom = map.getZoom();
+            cafesGroup.eachLayer( function (layer){
+                //console.log(layer);
+                if ( zoom >= 13 ) {
+                    layer.openTooltip();
+                }
+            });
     });
   //} // if(canHover)
   } // if (loc.Actif == 'Y')
