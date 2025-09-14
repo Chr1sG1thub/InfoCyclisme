@@ -29,25 +29,41 @@
   width: 50px;
   font-size: 28px;
   border-radius: 6px;
-  z-index: 1001" onclick="document.getElementById('help-popup').style.display='block'"><STRONG>?</STRONG></button>
+  z-index: 1001" onclick="document.getElementById('help-popup1').style.display='block'"><STRONG>?</STRONG></button>
 
-  <button id="help-popup" style="
+  <button id="help-popup1" style="
   position: absolute; 
   left: 50%; 
-  top: 50%; 
+  top: 50%;
   transform: translate(-50%, -50%);
   z-index: 1001; 
   background: white; 
   padding: 1.5em 2em;
   box-shadow: 0 2px 8px #33333355;
   border-radius: 6px;
-  display: none;" onclick="document.getElementById('help-popup').style.display='none'">
+  display: none;" onclick="document.getElementById('help-popup2').style.display='block'">
   <P>La carte indique les ascensions <img src="mountain.png" height="20px">, les cafés <img src="coffee.png" height="20px"> et les points d'eau (fontaines <img src="fountain.png" height="20px">, robinets <img src="tap.png" height="20px">, toilettes <img src="toilets.png" height="20px">, autres <img src="water.png" height="20px">).</P>
 
     <P>Vous pouvez afficher ou masquer les icônes de chaque catégorie en cliquant sur les boutons (en haut à droite).</P>
 
 <P>Le point bleu indique votre position actuelle. Cela peut ne pas fonctionner correctement en intérieur. Vous devez autoriser l'application (une seule fois).</P>
 
+<P>Cliquez sur l'icône d'une ascension pour voir son altitude et, pour certaines ascensions, son profil (nouvelle fenêtre).</P>
+
+</button>
+
+  <button id="help-popup2" style="
+  position: absolute; 
+  left: 50%; 
+  top: 50%;
+  
+  transform: translate(-50%, -50%);
+  z-index: 1001; 
+  background: white; 
+  padding: 1.5em 2em;
+  box-shadow: 0 2px 8px #33333355;
+  border-radius: 6px;
+  display: none;" onclick="document.getElementById('help-popup2').style.display='none'">
 <P>Cliquez sur l'icône d'une ascension pour voir son altitude et, pour certaines ascensions, son profil (nouvelle fenêtre).</P>
 
 <P>Cliquez sur l'icône d'un café pour voir son nom et son emplacement. Vous pouvez ensuite cliquer pour accéder à des informations supplémentaires détenues par Google, notamment ses horaires d'ouverture (nouvelle fenêtre).</P>
@@ -60,7 +76,7 @@
 
 </button>
 
-<!--  <button style="position: absolute; top: 60px; right: 50px; font-size: 16px; width: 120px; z-index: 1001">Accueil</button> -->
+  <!--  <button style="position: absolute; top: 60px; right: 50px; font-size: 16px; width: 120px; z-index: 1001">Accueil</button> -->
 <button id="toggleAscensions" title="Ascensions" style="position: absolute; top: 50px; right: 10px; font-size: 16px; width: 50px; z-index: 1001; border-radius: 6px"><img src="mountain.png" style="height: 30px"></button>
 <button id="toggleCafes" title="Cafés" style="position: absolute; top: 90px; right: 10px; font-size: 16px; width: 50px; z-index: 1001; border-radius: 6px"><img src="coffee.png" style="height: 30px"></button>
 <button id="toggleEau" title="Points d'Eau" style="position: absolute; top: 130px; right: 10px; font-size: 16px; width: 50px; z-index: 1001; border-radius: 6px;"><img src="water.png" style="height: 30px"></button>
