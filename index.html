@@ -250,7 +250,6 @@ var cafesGroup = L.layerGroup();
   offset: L.point(10, 10),
   opacity: 0.6
 });
-  }
     // Attach event listeners for each marker
     marker.on('popupopen', function() {
         var tooltip = this.getTooltip();
@@ -261,6 +260,7 @@ var cafesGroup = L.layerGroup();
         var tooltip = this.getTooltip();
         if (tooltip) tooltip.setOpacity(0.6);
     });
+  }
 
   });
     // Add the LayerGroup to the map
@@ -306,6 +306,17 @@ var eauGroup = L.layerGroup();
   offset: L.point(10, 10),
   opacity: 0.6
 });
+    // Attach event listeners for each marker
+    marker.on('popupopen', function() {
+        var tooltip = this.getTooltip();
+        if (tooltip) tooltip.setOpacity(0);
+    });
+
+    marker.on('popupclose', function() {
+        var tooltip = this.getTooltip();
+        if (tooltip) tooltip.setOpacity(0.6);
+    });
+
   } // if (loc.Afficher == '+')
 
   });
