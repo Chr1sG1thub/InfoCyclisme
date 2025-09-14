@@ -308,7 +308,7 @@ var eauGroup = L.layerGroup();
       //marker.off('mouseover');
       //marker.off('mouseout');
  if(canHover){
-   var tt = `${loc.Genre}`;
+   var tt = `<STRONG>${loc.Genre}</STRONG>`;
       marker.bindTooltip(tt, {
   permanent: false, // default, show only on hover
   interactive: false,
@@ -336,27 +336,27 @@ eauGroup.addTo(map);
     console.error('Failed to load locations:', err);
   });
 
-   // map.on('zoomend', function() {
-   //     var zoom = map.getZoom();
-    //        ascensionsGroup.eachLayer( function (layer){
-    //            //console.log(layer);
-     //           if ( zoom >= 13 ) {
-    //                layer.openTooltip();
-   //             } else if ( zoom < 13 ) {
-   //                 //console.log('remove tooltip');
-    //                layer.closeTooltip();
-    //            }
-     //       });
-      //      cafesGroup.eachLayer( function (layer){
-      //          //console.log(layer);
-     //           if ( zoom >= 13 ) {
-     //               layer.openTooltip();
-      //          } else if ( zoom < 13 ) {
-      //              //console.log('remove tooltip');
-      //              layer.closeTooltip();
-      //          }
-     //       });
-   //  });
+    map.on('zoomend', function() {
+        var zoom = map.getZoom();
+            ascensionsGroup.eachLayer( function (layer){
+                //console.log(layer);
+                if ( zoom >= 13 ) {
+                    layer.openTooltip();
+                } else if ( zoom < 13 ) {
+                    //console.log('remove tooltip');
+                    layer.closeTooltip();
+                }
+            });
+            cafesGroup.eachLayer( function (layer){
+                //console.log(layer);
+                if ( zoom >= 13 ) {
+                    layer.openTooltip();
+                } else if ( zoom < 13 ) {
+                    //console.log('remove tooltip');
+                    layer.closeTooltip();
+                }
+            });
+     });
     
 </script>
 <!--  <button style="position: fixed; top: 20px; left: 20px; z-index: 1000;">Click Me</button> -->
