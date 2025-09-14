@@ -41,8 +41,13 @@
   padding: 1.5em 2em;
   box-shadow: 0 2px 8px #33333355;
   border-radius: 6px;
-  display: none;" onclick="document.getElementById('help-popup2').style.display='block'">
-  <P>La carte indique les ascensions <img src="mountain.png" height="20px">, les cafés <img src="coffee.png" height="20px"> et les points d'eau (fontaines <img src="fountain.png" height="20px">, robinets <img src="tap.png" height="20px">, toilettes <img src="toilets.png" height="20px">, autres <img src="water.png" height="20px">).</P>
+  display: none;" onclick="function () {
+    document.getElementById('help-popup1').style.display='none';
+    document.getElementById('help-popup2').style.display='block';
+    };"
+    
+  <P>[1/2]</P>
+<P>La carte indique les ascensions <img src="mountain.png" height="20px">, les cafés <img src="coffee.png" height="20px"> et les points d'eau (fontaines <img src="fountain.png" height="20px">, robinets <img src="tap.png" height="20px">, toilettes <img src="toilets.png" height="20px">, autres <img src="water.png" height="20px">).</P>
 
     <P>Vous pouvez afficher ou masquer les icônes de chaque catégorie en cliquant sur les boutons (en haut à droite).</P>
 
@@ -50,13 +55,13 @@
 
 <P>Cliquez sur l'icône d'une ascension pour voir son altitude et, pour certaines ascensions, son profil (nouvelle fenêtre).</P>
 
+    <BR><i>Cliquez pour regarder [2/2].</i>
 </button>
 
   <button id="help-popup2" style="
   position: absolute; 
   left: 50%; 
   top: 50%;
-  
   transform: translate(-50%, -50%);
   z-index: 1001; 
   background: white; 
@@ -64,7 +69,8 @@
   box-shadow: 0 2px 8px #33333355;
   border-radius: 6px;
   display: none;" onclick="document.getElementById('help-popup2').style.display='none'">
-<P>Cliquez sur l'icône d'une ascension pour voir son altitude et, pour certaines ascensions, son profil (nouvelle fenêtre).</P>
+<P>[2/2]</P>
+    <P>Cliquez sur l'icône d'une ascension pour voir son altitude et, pour certaines ascensions, son profil (nouvelle fenêtre).</P>
 
 <P>Cliquez sur l'icône d'un café pour voir son nom et son emplacement. Vous pouvez ensuite cliquer pour accéder à des informations supplémentaires détenues par Google, notamment ses horaires d'ouverture (nouvelle fenêtre).</P>
 
@@ -72,7 +78,8 @@
 
 <P>Les noms des ascensions et des cafés s'affichent automatiquement au-delà d'un certain niveau de zoom.</P>
 
-<P>L'application est une page Web, vous pouvez donc l'ajouter à vos favoris ou l'ajouter à l'écran d'accueil de votre téléphone.</P> <BR><i>Cliquez pour fermer.</i>
+<P>L'application est une page Web, vous pouvez donc l'ajouter à vos favoris ou l'ajouter à l'écran d'accueil de votre téléphone.</P>
+    <BR><i>Cliquez pour fermer.</i>
 
 </button>
 
