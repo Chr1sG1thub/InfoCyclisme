@@ -52,6 +52,10 @@
 <button id="toggleEau" title="Points d'Eau" style="position: absolute; top: 130px; right: 10px; font-size: 16px; width: 50px; z-index: 1001; border-radius: 6px;"><img src="water.png" style="height: 30px"></button>
 
   <script>
+
+    // Returns true if the device supports hovering (i.e., mouse/trackpad)
+const canHover = window.matchMedia('(hover: hover)').matches;
+
 // Store visibility states
   var ascensionsVisible = true;
   var cafesVisible = true;
@@ -202,7 +206,8 @@ var ascensionsGroup = L.layerGroup();
       marker.bindPopup(ppp);
       //marker.off('mouseover');
       //marker.off('mouseout');
-      var tt = `<STRONG>${loc.Name}</STRONG>`;
+if(canHover){
+  var tt = `<STRONG>${loc.Name}</STRONG>`;
       marker.bindTooltip(tt, {
   permanent: false, // default, show only on hover
   interactive: false,
@@ -219,6 +224,7 @@ var ascensionsGroup = L.layerGroup();
         var tooltip = this.getTooltip();
         if (tooltip) tooltip.setOpacity(0.6);
     });
+} // if(CanHover)
 
   });
     // Add the LayerGroup to the map
@@ -243,6 +249,7 @@ var cafesGroup = L.layerGroup();
       marker.bindPopup(`<STRONG>${loc.Name}</STRONG><BR>${loc.Location}<BR><BR><A HREF="${loc.LinkURL}" TARGET="_blank">Détails</A><BR><I>(Nouvelle Fenêtre)</I>`);
      //marker.off('mouseover');
       //marker.off('mouseout');
+if(canHover){
       var tt = `<STRONG>${loc.Name}</STRONG><BR>${loc.Location}`;
       marker.bindTooltip(tt, {
   permanent: false, // default, show only on hover
@@ -260,7 +267,8 @@ var cafesGroup = L.layerGroup();
         var tooltip = this.getTooltip();
         if (tooltip) tooltip.setOpacity(0.6);
     });
-  }
+  } // if(canHover)
+  } // if (loc.Actif == 'Y')
 
   });
     // Add the LayerGroup to the map
@@ -299,7 +307,8 @@ var eauGroup = L.layerGroup();
  eauGroup.addLayer(marker);  
       //marker.off('mouseover');
       //marker.off('mouseout');
-      var tt = `${loc.Genre}`;
+ if(canHover){
+   var tt = `${loc.Genre}`;
       marker.bindTooltip(tt, {
   permanent: false, // default, show only on hover
   interactive: false,
@@ -316,7 +325,7 @@ var eauGroup = L.layerGroup();
         var tooltip = this.getTooltip();
         if (tooltip) tooltip.setOpacity(0.6);
     });
-
+ } // if(canHover)
   } // if (loc.Afficher == '+')
 
   });
