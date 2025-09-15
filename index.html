@@ -11,6 +11,7 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <style>
     #map { height: 800px; width: 100%; }
+    .ascensiontt {background-color: yellow}
   </style>
 <link rel="stylesheet" type="text/css" href="styles.css" />
 
@@ -247,6 +248,7 @@ var ascensionsGroup = L.layerGroup();
 //if(canHover){
   var tt = `<STRONG>${loc.Name}</STRONG>`;
       marker.bindTooltip(tt, {
+  className: "ascensiontt",
   permanent: false, // default, show only on hover
   interactive: false,
   offset: L.point(10, 10),
