@@ -344,29 +344,29 @@ var eauGroup = L.layerGroup();
   .then(locations => {
     locations.forEach(loc => {
 
- if (loc.Afficher == '+') {
+ if (loc.Show == 'Y') {
 
     let iconToUse;
-    if (loc.Genre === 'Fontaine') {
+    if (loc.Type === 'Fontaine') {
       iconToUse = fountainIcon;
-    } else if (loc.Genre === 'Robinet') {
+    } else if (loc.Type === 'Robinet') {
       iconToUse = tapIcon;
-    } else if (loc.Genre === 'Toilettes') {
+    } else if (loc.Type === 'Toilettes') {
       iconToUse = toiletsIcon;
 //    } else if (loc.Genre === 'SOURCE') {
 //      iconToUse = blueIcon;
-    } else if (loc.Genre === 'Point d\'Eau') {
+    } else if (loc.Type === 'Point d\'Eau') {
       iconToUse = waterIcon;
     }
 
     const marker = L.marker([loc.Lat, loc.Lon], { icon: iconToUse }).addTo(map);
       // Add a popup with extra fields from the sheet
-      marker.bindPopup(`<STRONG>${loc.Genre}</STRONG>`);
+      marker.bindPopup(`<STRONG>${loc.Type}</STRONG>`);
  eauGroup.addLayer(marker);  
       //marker.off('mouseover');
       //marker.off('mouseout');
  //if(canHover){
-   var tt = `<STRONG>${loc.Genre}</STRONG>`;
+   var tt = `<STRONG>${loc.Type}</STRONG>`;
       marker.bindTooltip(tt, {
   permanent: false, // default, show only on hover
   interactive: false,
