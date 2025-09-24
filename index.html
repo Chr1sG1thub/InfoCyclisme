@@ -161,7 +161,7 @@ navigator.geolocation.watchPosition(
     var latlng = [position.coords.latitude, position.coords.longitude];
     if (!userMarker) {
       userMarker = L.marker(latlng, { icon: locationIcon }).addTo(map);
-      map.setView(latlng, 12);
+      map.panTo(latlng);
     } else {
       userMarker.setLatLng(latlng);
     }
