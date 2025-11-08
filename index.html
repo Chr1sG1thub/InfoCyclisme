@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title>Info Cyclisme</title>
-    <link rel="shortcut icon" type="image/png" href="dep66.png"> 
+<link rel="manifest" href="/InfoCyclisme/manifest.json">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
@@ -95,6 +95,11 @@
 
   <script>
 
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/InfoCyclisme/service-worker.js')
+  .then(reg => console.log('Service Worker registered', reg))
+  .catch(err => console.error('Service Worker registration failed', err));
+}
     // Returns true if the device supports hovering (i.e., mouse/trackpad)
 //const canHover = window.matchMedia('(hover: hover)').matches;
 
