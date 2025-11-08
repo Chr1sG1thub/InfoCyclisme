@@ -7,6 +7,7 @@ self.addEventListener('install', event => {
         '/InfoCyclisme/coffee.png',
         '/InfoCyclisme/eau.json',
         '/InfoCyclisme/fountain.png',
+        '/InfoCyclisme/index.html',
         '/InfoCyclisme/location.ico',
         '/InfoCyclisme/mountain.png',
         '/InfoCyclisme/tap.png',
