@@ -1,13 +1,13 @@
 {
-  "name": "Transact Status",
-  "short_name": "Transact",
-  "start_url": "/TransactStatus/",
+  "name": "InfoCyclisme",
+  "short_name": "InfoCyclisme",
+  "start_url": "/InfoCyclisme/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#000000",
   "icons": [
     {
-      "src": "/TransactStatus/Transact.png",
+      "src": "/InfoCyclisme/dep66.png",
       "sizes": "192x192",
       "type": "image/png"
     }
