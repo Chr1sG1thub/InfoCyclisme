@@ -1,0 +1,25 @@
+,
+  {
+    "Lat": 42.5034828,
+    "Lon": 2.821219,
+    "Type": "Robinet",
+    "Display": "Y"
+  },
+  {
+    "Lat": 42.4795985,
+    "Lon": 2.92446,
+    "Type": "Point d'Eau",
+    "Display": "Y"
+  },
+  {
+    "Lat": 42.7657192,
+    "Lon": 2.5609224,
+    "Type": "Fontaine",
+    "Display": "Y"
+  },
+  {
+    "Lat": 42.757954,
+    "Lon": 2.7506154,
+    "Type": "Robinet",
+    "Display": "Y"
+  }
