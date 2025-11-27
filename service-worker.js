@@ -1,31 +1,13 @@
 self.addEventListener('install', event => {
-  event.waitUntil(
-    caches.open('v1').then(cache =>
-      cache.addAll([
-        '/InfoCyclisme/ascensions.json',
-        '/InfoCyclisme/cafes.json',
-        '/InfoCyclisme/coffee.png',
-        '/InfoCyclisme/eau.json',
-        '/InfoCyclisme/fountain.png',
-//        '/InfoCyclisme/index.html',
-        '/InfoCyclisme/location.ico',
-        '/InfoCyclisme/mountain.png',
-        '/InfoCyclisme/tap.png',
-        '/InfoCyclisme/toilets.png',
-        '/InfoCyclisme/water.png'
-      ])
-    )
-  );
+  // No files to cache
+  self.skipWaiting(); // Optional: activate immediately
 });
 
 self.addEventListener('activate', event => {
-  event.waitUntil(self.clients.claim());
+  self.clients.claim(); // Take control of pages immediately
 });
 
 self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request).then(response =>
-      response || fetch(event.request)
-    )
-  );
+  // Always fetch from network, no caching
+  event.respondWith(fetch(event.request));
 });
