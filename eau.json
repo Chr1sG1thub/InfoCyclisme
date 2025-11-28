@@ -1,5 +1,11 @@
 [
   {
+    "Lat": 42.640609,
+    "Lon": 2.521072,
+    "Type": "Toilettes",
+    "Display": "Y"
+  },
+  {
     "Lat": 42.6173829,
     "Lon": 2.4231781,
     "Type": "Toilettes",
