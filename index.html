@@ -260,12 +260,12 @@ var ascensionsGroup = L.layerGroup();
   interactive: false,
   offset: L.point(10, 10),
   opacity: 0.6,  sticky: true //???
-});
+}); //marker.bindTooltip
     // Attach event listeners for each marker
     marker.on('popupopen', function() {
         var tooltip = this.getTooltip();
         if (tooltip) tooltip.setOpacity(0);
-    });
+    }); //marker.on
 
     marker.on('popupclose', function() {
         var tooltip = this.getTooltip();
@@ -275,15 +275,15 @@ var ascensionsGroup = L.layerGroup();
                 //console.log(layer);
                 if ( zoom >= 13 ) {
                     layer.openTooltip();
-                }
-            });
-    });
+                } //ascensionsGroup.eachLayer
+            }); // marker.on
+    }); //marker.bindTooltip
 //} // if(CanHover)
 
-  });
+  }); // locations.forEach
     // Add the LayerGroup to the map
 ascensionsGroup.addTo(map);
-  })
+  }) // .then(locations
   .catch(err => {
     console.error('Failed to load locations:', err);
   });
