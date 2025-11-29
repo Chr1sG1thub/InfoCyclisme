@@ -239,6 +239,7 @@ const toiletsIcon = new L.Icon({
     // Create an empty LayerGroup
 var ascensionsGroup = L.layerGroup();
 //fetch('https://script.google.com/macros/s/AKfycbzO1WUGFuJzowiL1nGFKyak7mhSkKXfJ2yqHq9j1eAgYppuvfvBQZbdLG1w21lCmhGEPg/exec')
+    
   fetch('ascensions.json')
   .then(response => response.json())
   .then(locations => {
@@ -286,11 +287,12 @@ ascensionsGroup.addTo(map);
   }) // .then(locations
   .catch(err => {
     console.error('Failed to load locations:', err);
-  });
+  }); // .then(locations
 
     // Create an empty LayerGroup
 var cafesGroup = L.layerGroup();
 //fetch('https://script.google.com/macros/s/AKfycbzO1WUGFuJzowiL1nGFKyak7mhSkKXfJ2yqHq9j1eAgYppuvfvBQZbdLG1w21lCmhGEPg/exec')
+    
   fetch('cafes.json')
   .then(response => response.json())
   .then(locations => {
@@ -311,12 +313,12 @@ var cafesGroup = L.layerGroup();
   interactive: false,
   offset: L.point(10, 10),
   opacity: 0.6,  sticky: true //???
-});
+}); //marker.bindTooltip
     // Attach event listeners for each marker
     marker.on('popupopen', function() {
         var tooltip = this.getTooltip();
         if (tooltip) tooltip.setOpacity(0);
-    });
+    }); //marker.on
 
     marker.on('popupclose', function() {
         var tooltip = this.getTooltip();
@@ -328,22 +330,23 @@ var cafesGroup = L.layerGroup();
                 if ( zoom >= 13 ) {
                     layer.openTooltip();
                 }
-            });
-    });
+            }); //cafesGroup.eachLayer
+    }); //marker.on
   //} // if(canHover)
   } // if (loc.Actif == 'Y')
 
-  });
+  }); //locations.forEach
     // Add the LayerGroup to the map
 cafesGroup.addTo(map);
-  })
+  }) //.then(locations
   .catch(err => {
     console.error('Failed to load locations:', err);
-  });
+  }); //.then(locations
 
     // Create an empty LayerGroup
 var eauGroup = L.layerGroup();
 //fetch('https://script.google.com/macros/s/AKfycbzO1WUGFuJzowiL1nGFKyak7mhSkKXfJ2yqHq9j1eAgYppuvfvBQZbdLG1w21lCmhGEPg/exec')
+    
   fetch('eau.json')
   .then(response => response.json())
   .then(locations => {
@@ -377,27 +380,27 @@ var eauGroup = L.layerGroup();
   interactive: false,
   offset: L.point(10, 10),
   opacity: 0.6,  sticky: true //???
-});
+}); //marker.bindTooltip
     // Attach event listeners for each marker
     marker.on('popupopen', function() {
         var tooltip = this.getTooltip();
         if (tooltip) tooltip.setOpacity(0);
-    });
+    }); //marker.on
 
     marker.on('popupclose', function() {
         var tooltip = this.getTooltip();
         if (tooltip) tooltip.setOpacity(0.6);
-    });
+    }); //marker.on
  //} // if(canHover)
-  } // if (loc.Afficher == '+')
+  } // if (loc.Display == 'Y')
 
-  });
+  }); //locations.forEach
     // Add the LayerGroup to the map
 eauGroup.addTo(map);
-  })
+  }) //.then(locations
   .catch(err => {
     console.error('Failed to load locations:', err);
-  });
+  }); //.then(locations
 
     map.on('zoomend', function() {
         var zoom = map.getZoom();
@@ -409,7 +412,7 @@ eauGroup.addTo(map);
                     //console.log('remove tooltip');
                     layer.closeTooltip();
                 }
-            });
+            }); //ascensionsGroup.eachLayer
             cafesGroup.eachLayer( function (layer){
                 //console.log(layer);
                 if ( zoom >= 13 ) {
@@ -418,8 +421,8 @@ eauGroup.addTo(map);
                     //console.log('remove tooltip');
                     layer.closeTooltip();
                 }
-            });
-     });
+            }); //cafesGroup.eachLayer
+     }); //map.on
     
 </script>
 <!--  <button style="position: fixed; top: 20px; left: 20px; z-index: 1000;">Click Me</button> -->
