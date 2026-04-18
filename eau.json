@@ -9280,5 +9280,11 @@
     "Lon": 2.7506154,
     "Type": "Robinet",
     "Display": "Y"
+  },
+  {
+    "Lat": 42.551648,
+    "Lon":  2.737804,
+    "Type": "Fontaine",
+    "Display": "Y"
   }
 ]
